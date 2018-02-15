@@ -11,13 +11,13 @@
 import {Config} from 'protractor';
 
 export let config: Config = {
-  framework: 'jasmine',
+  framework: 'jasmine2',
   capabilities: {
     browserName: 'chrome'
   },
-  specs: [ './specs/spec.js' ],
+  specs: [ './specs/specPageObjects.js' ],
   onPrepare:()=>{
-   var gvar='global variable in onprepare section';
+  //  var gvar='global variable in onprepare section';
    
 
   },

@@ -7,9 +7,10 @@
   "scripts": {
     "tsc": "tsc",
     "pretest": "npm run tsc",
-    "test": "protractor tmp/conf.js"    
+    "test": "protractor tmp/conf.js"
   },
   "dependencies": {
+    "frisby": "^2.0.11",
     "jasmine": "^2.4.1",
     "money": "^0.2.0",
     "numeral": "^2.0.6",

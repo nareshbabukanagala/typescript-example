@@ -1,5 +1,6 @@
 // local import of the exported AngularPage class
-import {AngularHomepage} from './angularPage';
+import {AngularHomepage} from '../pages/angularPage';
+const frisby = require('frisby');
 
 // The jasmine typings are brought in via DefinitelyTyped ambient typings.
 describe('angularjs homepage', () => {
@@ -9,5 +10,12 @@ describe('angularjs homepage', () => {
     angularHomepage.setName('Julie');
     expect(angularHomepage.getGreeting()).toEqual('Hello Julie!');
     
+  });
+
+  it ('should return a status of 200', function (done) {
+    frisby
+      .get('http://google.com')
+      .expect('status', 200)
+      .done(done);
   });
 });
