@@ -150,3 +150,10 @@ class CustomMatcher {
 
 }
 module.exports = new CustomMatcher();
+
+
+// myCustomMatcher = require('../utils/custom_matcher.js');
+//             beforeEach(function() {
+//                 global.URL = browser.getCurrentUrl();
+//                 jasmine.addMatchers(myCustomMatcher.customMatchers);
+//             });
