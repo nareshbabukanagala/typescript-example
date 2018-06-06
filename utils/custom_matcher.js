@@ -143,6 +143,71 @@ class CustomMatcher {
                         return result;
                     }
                 };
+            },
+            toBe: function(util, customEqualityTesters) {
+                return {
+                    compare: function(actual, expected, msg) {
+                        if (expected === undefined) {
+                            expected = '';
+                        }
+                        if (msg === undefined) {
+                            msg = '';
+                        } else {
+                            msg = " [" + msg + "]"
+                        }
+
+                        var result = {};
+                        result.pass = util.equals(actual, expected, customEqualityTesters);
+                        if (result.pass) {
+                            result.pass = "Expected \"" + actual + "\" to Be \"" + expected + "<font color='#FF8F00'>" + msg + "</font>";
+                            result.message = "Expected " + actual + " to Be " + expected + "<font color='#FF8F00'>" + msg + "</font>";
+                        } else {
+                            result.message = "Expected " + actual + ", but it is " + expected + " " + "<font color='#FF8F00'>" + msg + "</font>";
+                        }
+                        return result;
+                    }
+                };
+            },
+            toBeTruthy: function(util, customEqualityTesters) {
+                return {
+                    compare: function(actual, msg) {
+
+                        if (msg === undefined) {
+                            msg = '';
+                        } else {
+                            msg = " [" + msg + "]"
+                        }
+
+                        var result = {};
+                        result.pass = util.equals(actual, true, customEqualityTesters);
+                        if (result.pass) {
+                            result.pass = "Expected \"" + actual + "\" to Be \"" + true + "<font color='#FF8F00'>" + msg + "</font>";
+                            result.message = "Expected " + actual + " to Be " + true + "<font color='#FF8F00'>" + msg + "</font>";
+                        } else {
+                            result.message = "Expected " + actual + ", but it is " + true + " " + "<font color='#FF8F00'>" + msg + "</font>";
+                        }
+                        return result;
+                    }
+                };
+            },
+            toBeGreaterThan: function(util, customEqualityTesters) {
+                return {
+                    compare: function(actual, expected, msg) {
+                        if (msg === undefined) {
+                            msg = '';
+                        } else {
+                            msg = " [" + msg + "]"
+                        }
+                        var result = {};
+                        result.pass = actual > expected;
+                        if (result.pass) {
+                            result.pass = "Expected \"" + actual + "\" to Be \"" + true + "<font color='#FF8F00'>" + msg + "</font>";
+                            result.message = "Expected " + actual + " to Be " + true + "<font color='#FF8F00'>" + msg + "</font>";
+                        } else {
+                            result.message = "Expected " + actual + ", but it is " + true + " " + "<font color='#FF8F00'>" + msg + "</font>";
+                        }
+                    }
+                };
             }
 
         };
