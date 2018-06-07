@@ -199,12 +199,35 @@ class CustomMatcher {
                             msg = " [" + msg + "]"
                         }
                         var result = {};
-                        result.pass = actual > expected;
+                        return {
+                            pass: actual > expected
+                        };
                         if (result.pass) {
-                            result.pass = "Expected \"" + actual + "\" to Be \"" + true + "<font color='#FF8F00'>" + msg + "</font>";
-                            result.message = "Expected " + actual + " to Be " + true + "<font color='#FF8F00'>" + msg + "</font>";
+                            result.pass = "Expected \"" + actual + "\" to Equal \"" + expected + "\"";
+                            result.message = "Expected " + actual + " to Equal " + expected + "";
                         } else {
-                            result.message = "Expected " + actual + ", but it is " + true + " " + "<font color='#FF8F00'>" + msg + "</font>";
+                            result.message = "Expected " + actual + ", but it is " + expected + "[" + msg + "]";
+                        }
+                    }
+                };
+            },
+            toBeLessThan: function(util, customEqualityTesters) {
+                return {
+                    compare: function(actual, expected, msg) {
+                        if (msg === undefined) {
+                            msg = '';
+                        } else {
+                            msg = " [" + msg + "]"
+                        }
+                        var result = {};
+                        return {
+                            pass: actual < expected
+                        };
+                        if (result.pass) {
+                            result.pass = "Expected \"" + actual + "\" to Equal \"" + expected + "\"";
+                            result.message = "Expected " + actual + " to Equal " + expected + "";
+                        } else {
+                            result.message = "Expected " + actual + ", but it is " + expected + "[" + msg + "]";
                         }
                     }
                 };
