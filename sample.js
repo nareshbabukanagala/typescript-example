@@ -1,3 +1,52 @@
+// data.po.ts
+=========
+import {promise} from 'selenium-webdriver';
+const = require('oracledb');
+
+expoert class dbConnection{
+getDbResults(done:DoneFn):promise.Promise<any>{
+let resultData;
+return oracleDb.getConnection({
+user:'',
+password:'',
+connectString:'',
+
+},
+(err:any,connection:any)=>{
+
+if(err){console.log(err);}
+
+done();
+return connection;
+}
+
+)}
+}
+=========
+
+import {dbConnection} from './data.po';
+
+let dbConnection:dbConnection
+
+dbConnectionSet = new dbConnection()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var col = ['sno', 'sname', 'sadd'];
 var values = [
 
@@ -36,7 +85,7 @@ function gatResultObject(col1, values1){
 return resObj
 }
 
-jj=gatall(col, values);
+jj=gatResultObject(col, values);
 
 console.log(jj[0].sno)
 
